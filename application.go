@@ -29,6 +29,12 @@ func main() {
             }
         })
 
+        http.HandleFunc("/send", func(w http.ResponseWriter, r *http.Request){
+            if r.Method == "POST" {
+            log.Printf("Sending to %s with message %s\n", r.Header.Get("numbers"), r.Header.Get("message"))
+            }
+        })
+
         http.HandleFunc("/scheduled", func(w http.ResponseWriter, r *http.Request){
             if r.Method == "POST" {
             log.Printf("Received task %s scheduled at %s\n", r.Header.Get("X-Aws-Sqsd-Taskname"), r.Header.Get("X-Aws-Sqsd-Scheduled-At"))

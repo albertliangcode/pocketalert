@@ -5,22 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+    #header{
+      margin-top: 100px;
+      color:red;
+    }
+
+    #numberInput{
+      margin-top: 100px;
+    }
+
+    #messageInput{
+      margin-top:10px;
+    }
+
+    #submit{
+      margin-top:100px;
+    }
+    </style>
   </head>
   <body>
 
-  	<div class="container-fluid">
-  		<div class="row-fluid text-center" id="header">
+  	<div class="container">
+  		<div class="row text-center" id="header">
   			<h1>Pocket Alert</h1>
   		</div>
-  		<div class="row-fluid text-center" id="numberInput">
-  			<input class="span8" type="text" placeholder="Enter the numbers you wish to alert, separated by commas">
+  		<div class="row text-center" id="numberInput">
+  			<input class="col-sm-8 col-sm-offset-2" type="text" placeholder="Enter the numbers you wish to alert, separated by commas">
   		</div>
-  		<div class="row-fluid text-center" id="messageInput">
-  			<input class="span8" type="text" placeholder="Enter the message you wish to send">
+  		<div class="row text-center" id="messageInput">
+  			<input class="col-sm-8 col-sm-offset-2" type="text" placeholder="Enter the message you wish to send">
   		</div>
-  		<div class="row-fluid text-center" id="submit">
+  		<div class="row text-center" id="submit">
   			<button class="btn btn-large btn-danger" id="submitBtn" type="button">Send</button>
   	</div>
 
@@ -40,7 +57,6 @@
 
 
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
 </html>
