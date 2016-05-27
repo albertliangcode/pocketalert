@@ -32,10 +32,10 @@
   			<h1>Pocket Alert</h1>
   		</div>
   		<div class="row text-center" id="numberInput">
-  			<input class="col-sm-8 col-sm-offset-2" type="text" placeholder="Enter the numbers you wish to alert, separated by commas">
+  			<input class="col-sm-8 col-sm-offset-2" id="numberInputBox" type="text" placeholder="Enter the numbers you wish to alert, separated by commas">
   		</div>
   		<div class="row text-center" id="messageInput">
-  			<input class="col-sm-8 col-sm-offset-2" type="text" placeholder="Enter the message you wish to send">
+  			<input class="col-sm-8 col-sm-offset-2" id="messageInputBox" type="text" placeholder="Enter the message you wish to send">
   		</div>
   		<div class="row text-center" id="submit">
   			<button class="btn btn-large btn-danger" id="submitBtn" type="button">Send</button>
@@ -58,5 +58,13 @@
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+          $("#submitBtn").click(function(){
+              var numbersVal = $('#numberInputBox').val();
+              var messageVal = $('#messageInputBox').val();
+              $.post( "/send", {numbers: numbersVal, message: messageVal});
+          });
+      
+    </script>
   </body>
 </html>
