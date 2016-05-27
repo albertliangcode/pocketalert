@@ -5,6 +5,7 @@ import (
     "log"
     "net/http"
     "os"
+    "fmt"
 )
 
 func main() {
@@ -30,9 +31,15 @@ func main() {
         })
 
         http.HandleFunc("/send", func(w http.ResponseWriter, r *http.Request){
-            if r.Method == "POST" {
-            log.Printf("Sending to %s with message %s\n", r.Header.Get("numbers"), r.Header.Get("message"))
+            err := r.ParseForm()
+            if err != nil {
+                // Handle error here via logging and then return            
             }
+            numbers := r.PostFormValue("numbers")
+            message := r.PostFormValue("message")
+            
+            //Send a post request
+
         })
 
         http.HandleFunc("/scheduled", func(w http.ResponseWriter, r *http.Request){
