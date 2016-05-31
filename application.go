@@ -8,6 +8,7 @@ import (
     "encoding/json"
     "os"
     "fmt"
+    "strings"
 )
 
 /* NOTE: Taking advantage of other projects?
@@ -56,11 +57,9 @@ func main() {
             }
             numbers := r.PostFormValue("numbers")
             message := r.PostFormValue("message")
-            // TODO: Remove debug println
-            fmt.Println(numbers, message)
            
-            // TODO: use string.Replacer to swap out , with <
-
+            replacer := strings.NewReplacer(",", "<")
+            numbers = replacer.Replace(numbers)
             msg := plivoMessage{source_phone, numbers, message}
             jsonToPlivo, err := json.Marshal(msg)
 
