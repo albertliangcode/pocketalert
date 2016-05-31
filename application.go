@@ -6,6 +6,7 @@ import (
     "net/http"
     "bytes"
     "encoding/json"
+    "text/template"
     "os"
     "fmt"
     "strings"
@@ -37,6 +38,7 @@ func main() {
         log.SetOutput(f)
 
         const indexPage = "public/index.html"
+        const confirmPage = "public/confirmation.html"
         http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
             if r.Method == "POST" {
                 if buf, err := ioutil.ReadAll(r.Body); err == nil {
@@ -83,6 +85,7 @@ func main() {
             body, _ := ioutil.ReadAll(resp.Body)
             fmt.Println("response Body:", string(body))
 
+            http.ServeFile(w, r, confirmPage)
         })
 
         http.HandleFunc("/scheduled", func(w http.ResponseWriter, r *http.Request){
