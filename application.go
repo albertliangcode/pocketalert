@@ -6,7 +6,6 @@ import (
     "net/http"
     "bytes"
     "encoding/json"
-    "text/template"
     "os"
     "fmt"
     "strings"
