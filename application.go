@@ -37,6 +37,7 @@ func main() {
             }
             numbers := r.PostFormValue("numbers")
             message := r.PostFormValue("message")
+            fmt.Println(numbers, message)
             
             //Send a post request
 
