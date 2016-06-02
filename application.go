@@ -38,6 +38,7 @@ func main() {
 
         const indexPage = "public/index.html"
         const confirmPage = "public/confirmation.html"
+        const errorPage = "public/error.html"
         http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
             if r.Method == "POST" {
                 if buf, err := ioutil.ReadAll(r.Body); err == nil {
@@ -84,7 +85,11 @@ func main() {
             body, _ := ioutil.ReadAll(resp.Body)
             fmt.Println("response Body:", string(body))
 
-            http.ServeFile(w, r, confirmPage)
+            if(resp.Status == "202 ACCEPTED"){
+                http.ServeFile(w, r, confirmPage)
+            } else {
+                http.ServeFile(w, r, errorPage)
+            }
         })
 
         http.HandleFunc("/scheduled", func(w http.ResponseWriter, r *http.Request){
