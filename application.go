@@ -9,6 +9,8 @@ import (
     "os"
     "fmt"
     "strings"
+    "database/sql"
+    _ "github.com/mattn/go-sqlite3"
 )
 
 /* NOTE: Taking advantage of other projects?
